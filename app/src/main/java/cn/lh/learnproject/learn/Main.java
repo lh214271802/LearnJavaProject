@@ -17,10 +17,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Vector;
 
 public class Main {
@@ -55,6 +57,7 @@ public class Main {
         map.put(2, "哈哈刚刚");
         map.put(2, "哈桑田哈");
         System.out.println(map.get(1) + "---" + map.get(2));
+        Set set = new HashSet();
     }
 
     private static void testMyList() {
