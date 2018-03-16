@@ -19,6 +19,7 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -57,7 +58,21 @@ public class Main {
         map.put(2, "哈哈刚刚");
         map.put(2, "哈桑田哈");
         System.out.println(map.get(1) + "---" + map.get(2));
-        Set set = new HashSet();//内部使用HashMap实现
+        System.out.println();
+        Set set = new HashSet();//内部使用HashMap实现,无序
+        set.add('a');
+        set.add("副噶破坏");
+        set.add('G');
+        set.add("副驾驶的彷徨");
+        set.add(2);
+        set.add('c');
+        set.add(24);
+        set.add("副gahog");
+        set.add("估计是跑");
+        Iterator iterator = set.iterator();
+        while (iterator.hasNext()) {
+            System.out.print(iterator.next() + "\t");
+        }
     }
 
     private static void testMyList() {
