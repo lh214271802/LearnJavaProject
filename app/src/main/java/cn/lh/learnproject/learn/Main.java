@@ -24,6 +24,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.Vector;
 
 public class Main {
@@ -73,6 +74,20 @@ public class Main {
         while (iterator.hasNext()) {
             System.out.print(iterator.next() + "\t");
         }
+        System.out.println();
+        Set treeSet = new TreeSet();
+        treeSet.add("刚好");
+        treeSet.add("464");
+        treeSet.add("sadgjpas");
+        treeSet.add("法师");
+        treeSet.add("会师");
+        treeSet.add("看师");
+        treeSet.add("想师");
+        Iterator iterator1 = treeSet.iterator();
+        while (iterator1.hasNext()) {
+            System.out.print(iterator1.next() + "\t");
+        }
+
     }
 
     private static void testMyList() {
