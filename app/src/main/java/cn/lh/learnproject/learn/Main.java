@@ -50,14 +50,14 @@ public class Main {
     }
 
     private static void testMap() {
-        Map map = new HashMap<>();
-        Map hashtable = new Hashtable();//线程安全
+        Map map = new HashMap<>();//非线程安全，效率高
+        Map hashtable = new Hashtable();//线程安全，效率低
         map.put("aghoig", "agjpojapogjuo sagj是破碎");
         map.put(1, "哈哈");
         map.put(2, "哈哈刚刚");
         map.put(2, "哈桑田哈");
         System.out.println(map.get(1) + "---" + map.get(2));
-        Set set = new HashSet();
+        Set set = new HashSet();//内部使用HashMap实现
     }
 
     private static void testMyList() {
