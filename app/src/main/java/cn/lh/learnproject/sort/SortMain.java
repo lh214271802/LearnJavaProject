@@ -4,6 +4,8 @@ import android.support.annotation.NonNull;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  * Created by liaohui on 2018/3/16.
@@ -91,6 +93,11 @@ public class SortMain {
         System.out.println(Arrays.toString(sortAges));
 
 //        Collections.sort(Arrays.asList(sortAges));
+
+
+        //自带排序功能，但是泛型类必须是实现了Comparable接口的类
+        TreeMap<Integer, String> treeMap = new TreeMap<>();
+        TreeSet<Integer> treeSet = new TreeSet<>();
     }
 
     /**
