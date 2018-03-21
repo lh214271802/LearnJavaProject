@@ -12,7 +12,7 @@ public class StaticProxyDemo {
         Marry you = new You();
         //创建代理角色
         Marry company = new WeddingCompany(you);
-
+new String("fasioos");
         company.marry();
     }
 }
