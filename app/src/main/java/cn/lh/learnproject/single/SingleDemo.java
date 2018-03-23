@@ -3,6 +3,7 @@ package cn.lh.learnproject.single;
 /**
  * Created by liaohui on 2018/3/22.
  * 懒汉式
+ * 过多的同步方法可能会造成死锁，解决方案：生产者消费者模式
  */
 
 public class SingleDemo {
