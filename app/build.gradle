@@ -16,6 +16,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    //支持lint warning 检查机制
+    lintOptions {
+        disable 'InvalidPackage'
+        abortOnError false      // 移除lint检查的error
+    }
     compileOptions {
         targetCompatibility 1.8
         sourceCompatibility 1.8
