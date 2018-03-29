@@ -1,4 +1,4 @@
-package cn.lh.learnproject.hightec.orm;
+package cn.lh.learnproject.hightec.orm_reflect;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -16,7 +16,7 @@ public class TestOrm {
 
         try {
             //获取类的注解，用来创建表
-            Class<?> aClass = Class.forName("cn.lh.learnproject.hightec.orm.Student");
+            Class<?> aClass = Class.forName("cn.lh.learnproject.hightec.orm_reflect.Student");
 //            Class<?> aClass = Student.class;
             Annotation[] annotations = aClass.getAnnotations();
             for (Annotation annotation : annotations) {

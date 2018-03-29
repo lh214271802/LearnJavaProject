@@ -1,4 +1,4 @@
-package cn.lh.learnproject.hightec.orm;
+package cn.lh.learnproject.hightec.orm_reflect;
 
 @SxtTable(value = "student")
 public class Student {
