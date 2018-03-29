@@ -169,7 +169,7 @@ public class TestAnnotation {
         try {
             Method m = cls.getMethod("fuckAnnotation");
             MyAnnotation myAnnotation = m.getAnnotation(MyAnnotation.class);
-            ToastUtils.showShort("myAnnotation.str = " + myAnnotation.str() + "---myAnnotation.value = " + myAnnotation.value());
+            ToastUtils.showShort("myAnnotation.str = " + myAnnotation.str() + "---myAnnotation.columnName = " + myAnnotation.value());
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }

@@ -37,7 +37,7 @@ public class TestProperty {
         properties.setProperty("url", "https://www.baidu.com");
         properties.setProperty("user", "lh");
         properties.setProperty("pwd", "111111");
-        String url = properties.getProperty("url", "default value");
+        String url = properties.getProperty("url", "default columnName");
         System.out.println(url);
         try {
             //存储到项目根目录下
