@@ -27,6 +27,10 @@ public class TestAnnotation {
         TestAnnotation testAnnotation = new TestAnnotation();
         testAnnotation.test();
 
+        //ORM  Object Relationship Mapping 对象关系映射
+
+
+
         //Lambda表达式使用与测试
 //        testAnnotation.testLambda();
 //        testAnnotation.testMethodQuote();
