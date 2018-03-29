@@ -1,5 +1,9 @@
 package cn.lh.learnproject.learn;
 
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -27,6 +31,10 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.Vector;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
 public class Main {
 
     private static int fuck = 0x3523;
@@ -49,6 +57,48 @@ public class Main {
 //        testCollection();
 //        testMyList();
         testMap();
+
+        try {
+            SAXParserFactory factory = SAXParserFactory.newInstance();
+            SAXParser saxParser = factory.newSAXParser();
+            saxParser.parse("xxx.xml", new DefaultHandler() {
+
+                @Override
+                public void startDocument() throws SAXException {
+                    super.startDocument();
+                }
+
+                @Override
+                public void endDocument() throws SAXException {
+                    super.endDocument();
+                }
+
+                //内容
+                @Override
+                public void characters(char[] ch, int start, int length) throws SAXException {
+                    super.characters(ch, start, length);
+                }
+
+                //开始元素
+                @Override
+                public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+                    super.startElement(uri, localName, qName, attributes);
+                }
+
+                //结束元素
+                @Override
+                public void endElement(String uri, String localName, String qName) throws SAXException {
+                    super.endElement(uri, localName, qName);
+                }
+            });
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private static void testMap() {

@@ -7,7 +7,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.security.cert.CRL;
 import java.util.Date;
 
 /**
@@ -49,7 +48,6 @@ public class HttpServerTest {
             System.out.println(builder.toString());
 
             //服务器响应
-
             StringBuilder responseContext = new StringBuilder();
             responseContext.append("你好啊");
 
