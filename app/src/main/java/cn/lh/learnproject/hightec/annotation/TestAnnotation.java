@@ -16,8 +16,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
 
-import cn.lh.learnproject.MainActivity;
-
 @MyAnnotation(name = {"嘻哈", "点击ski"}, age = 18, id = 22)
 @SuppressWarnings(value = "all")
 public class TestAnnotation {
@@ -164,7 +162,7 @@ public class TestAnnotation {
     //TODO 注解
     @MyAnnotation(str = "bitch", value = 9)
     public static void fuckAnnotation() {
-        MainActivity activity = new MainActivity();
+        TestAnnotation activity = new TestAnnotation();
         Class cls = activity.getClass();
         try {
             Method m = cls.getMethod("fuckAnnotation");
