@@ -1,4 +1,4 @@
-package cn.lh.learnproject.single;
+package cn.lh.learnproject.design_model.single;
 
 /**
  * Created by liaohui on 2018/3/22.
