@@ -36,7 +36,7 @@ public class SingleDemo {
 
 //饿汉式  类加载时就加载了instance
 class SingleDemo2 {
-    //类加载时，天然时线程安全的，所以下面的获取实例的方法不需要加同步块synchronized
+    //类加载(ClassLoader加载)时，天然是线程安全的，所以下面的获取实例的方法不需要加同步块synchronized
     public static SingleDemo2 instance = new SingleDemo2();
 
     private SingleDemo2() {
