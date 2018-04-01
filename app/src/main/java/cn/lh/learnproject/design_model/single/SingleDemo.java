@@ -50,6 +50,7 @@ class SingleDemo2 {
 //饿汉式   在使用SingleDemo3Holder的时候才会加载instance(调用getInstance的时候)
 class SingleDemo3 {
 
+    //静态内部类实现的单例模式：线程安全，调用效率高，且实现了延时加载！
     private static class SingleDemo3Holder {
         private static final SingleDemo3 instance = new SingleDemo3();
     }
@@ -59,5 +60,32 @@ class SingleDemo3 {
 
     public static SingleDemo3 getInstance() {
         return SingleDemo3Holder.instance;
+    }
+}
+
+//枚举方式实现单例模式,并且可以天然的放置反射和反序列化漏洞
+enum SingleDemo4 {
+    /**
+     * 定义一个枚举的元素，它就代表了Singleton的一个实例;这个枚举元素，本身就是单例对象
+     * 无延时加载效果
+     */
+    INSTANCE;
+
+    /**
+     * 单例可以有自己的操作,添加自己的一些功能处理
+     */
+    public void signgleOperation() {
+        //功能处理
+    }
+}
+
+class SingleDemoTest {
+    public static void main(String[] args) {
+        SingleDemo s1 = SingleDemo.getInstance1();
+        SingleDemo s11 = SingleDemo.getInstance2();
+        SingleDemo2 s2 = SingleDemo2.getInstance();
+        SingleDemo3 s3 = SingleDemo3.getInstance();
+        SingleDemo4 s4 = SingleDemo4.INSTANCE;
+        System.out.println(s1 == s11);
     }
 }
