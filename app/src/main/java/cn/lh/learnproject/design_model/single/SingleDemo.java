@@ -32,12 +32,11 @@ public class SingleDemo {
         }
         return instance;
     }
-
-
 }
 
 //饿汉式  类加载时就加载了instance
 class SingleDemo2 {
+    //类加载时，天然时线程安全的，所以下面的获取实例的方法不需要加同步块synchronized
     public static SingleDemo2 instance = new SingleDemo2();
 
     private SingleDemo2() {
@@ -52,7 +51,7 @@ class SingleDemo2 {
 class SingleDemo3 {
 
     private static class SingleDemo3Holder {
-        private static SingleDemo3 instance = new SingleDemo3();
+        private static final SingleDemo3 instance = new SingleDemo3();
     }
 
     private SingleDemo3() {
