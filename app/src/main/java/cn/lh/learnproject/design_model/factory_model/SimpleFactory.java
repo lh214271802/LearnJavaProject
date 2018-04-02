@@ -15,7 +15,7 @@ public class SimpleFactory {
 
         c1.run();
         c2.run();
-        System.out.println("============================================================");
+        System.out.println("==========================下面的占优，但是最常用的还是简单工厂模式==================================");
         //二  工厂方法模式(符合开闭原则)
         Car c11 = new AudiFactory().createCar();
         Car c22 = new BydFactory().createCar();
