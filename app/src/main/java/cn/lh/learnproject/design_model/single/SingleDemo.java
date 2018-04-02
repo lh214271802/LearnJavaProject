@@ -1,17 +1,31 @@
 package cn.lh.learnproject.design_model.single;
 
+import java.io.ObjectStreamException;
+import java.io.Serializable;
+
 /**
  * Created by liaohui on 2018/3/22.
  * 懒汉式
  * 过多的同步方法可能会造成死锁，解决方案：生产者消费者模式
  */
 
-public class SingleDemo {
+public class SingleDemo implements Serializable {
 
     public static SingleDemo instance = null;
 
+    //TODO 修复反射创建对象的方法
     private SingleDemo() {
+        //防止反射方式破解单例
+        throw new UnsupportedOperationException("你不可以创建哦！");
     }
+
+
+    //TODO 修复反序列化创建对象的方法
+    //反序列化时,如果定义了readResolve方法则直接返回此方法置顶的对象，而不需要单独在创建对象
+    private Object readResolve() throws ObjectStreamException {
+        return instance;
+    }
+
 
     //double checking
     public static SingleDemo getInstance1() {
@@ -81,6 +95,7 @@ enum SingleDemo4 {
 
 class SingleDemoTest {
     public static void main(String[] args) {
+        //总共5种创建单例的方式
         SingleDemo s1 = SingleDemo.getInstance1();
         SingleDemo s11 = SingleDemo.getInstance2();
         SingleDemo2 s2 = SingleDemo2.getInstance();
