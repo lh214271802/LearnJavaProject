@@ -15,6 +15,7 @@ import java.lang.reflect.InvocationTargetException;
  * 对枚举实现的单例不起作用，天然的单例
  */
 
+@SuppressWarnings("all")
 public class PokeSingleDemo {
     public static void main(String[] args) {
         SingleDemo s = SingleDemo.getInstance1();
