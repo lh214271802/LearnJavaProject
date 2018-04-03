@@ -1,4 +1,4 @@
-package cn.lh.learnproject.staticproxy.thread;
+package cn.lh.learnproject.design_model.proxy_model.thread;
 
 /**
  * Created by liaohui on 2018/3/21.
