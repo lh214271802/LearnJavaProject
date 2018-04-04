@@ -9,6 +9,7 @@ public class CommandDemo {
         Command command = new ConcreteCommand(new Receiver());
         Invoke i = new Invoke(command);
         i.call();
+
     }
 
 }
