@@ -19,7 +19,7 @@ public class JDBCTest {
             //真正开发中为提高效率使用连接池来管理连接对象
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:port/databaseName", "admin", "admin");
 
-            //这种情况可能存在SQL注入的危险
+            //这种情况可能存在SQL注入的危险  可以使用PreparedStatement来防止这种情况
             Statement statement = connection.createStatement();
             String sql = "insert into tableName(user,pwd,time) values ('张三',123456,now())";
             statement.execute(sql);
