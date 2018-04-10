@@ -1,6 +1,13 @@
 package cn.lh.learnproject.jdbc;
 
 
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -23,6 +30,7 @@ public class JDBCTest {
         //隔离性(事务查看数据时数据所处的状态要么是另一并发事务修改它之前的状态，要么是另一事务修改它之后的状态，事务不会去查看中间状态的数据)、
         //持久性(持久性事务完成之后，对于系统的影响是永久性的)
         testSqlConstraction();
+
     }
 
     //测试事务
@@ -31,6 +39,8 @@ public class JDBCTest {
         //批处理最好用Statement，以免异常
         PreparedStatement preparedStatement = null;
         PreparedStatement preparedStatement2 = null;
+        PreparedStatement preparedStatement3 = null;
+        PreparedStatement preparedStatement4 = null;
         try {
             //加载驱动
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -54,12 +64,51 @@ public class JDBCTest {
             preparedStatement2.execute();
 
 
+            //文本大对象的使用（Clob）插入---如文件存储
+            String sql3 = "insert into tableName(userName,password) values (?,?)";
+            preparedStatement3 = connection.prepareStatement(sql3);
+            preparedStatement3.setString(1, "asdopashg");
+            //文件内容插入，就是把文本文件内容输入到数据库中
+            preparedStatement3.setClob(2, new FileReader(new File("d://a.txt")));
+//            preparedStatement3.setClob(2, new InputStreamReader(new ByteArrayInputStream("dasgiophasihih".getBytes())));
+            preparedStatement3.execute();
+
+
+            //二进制大对象的使用（Blob）插入---如图片存储
+            String sql4 = "insert into tableName(userName,password) values (?,?)";
+            preparedStatement4 = connection.prepareStatement(sql4);
+            preparedStatement4.setString(1, "asdopashg");
+            //二进制内容插入，就是把文件内容转为二进制流输入到数据库中
+            preparedStatement4.setBlob(2, new FileInputStream("d://icon.jpg"));
+            preparedStatement4.execute();
+
             connection.commit();
+
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } finally {
+            try {
+                if (preparedStatement4 != null)
+                    preparedStatement4.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                if (preparedStatement3 != null)
+                    preparedStatement3.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                if (preparedStatement2 != null)
+                    preparedStatement2.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             try {
                 if (preparedStatement != null)
                     preparedStatement.close();
