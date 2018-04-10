@@ -10,7 +10,7 @@ package cn.lh.learnproject;
 public class Test {
 
     public static void main(String[] args) {
-        System.out.println(getNum("abba"));
+        System.out.println(getNum("asadgab"));
     }
 
 
@@ -34,20 +34,20 @@ public class Test {
             //当需要移除nowDeleteNum个字符的时候，最多能移除到此字符串末尾连续nowDeleteNum个字符，所以startIndex必须小于等于length-nowDeleteNum（因为是升序移除）
             int endIndex = length - nowDeleteNum;
             for (int startIndex = 0; startIndex <= endIndex; startIndex++) {
-                num += deleteChar(oldStr, startIndex, endIndex, nowDeleteNum, new StringBuilder(oldStr), new StringBuilder(oldStr).reverse());
+                num += deleteChar(startIndex, endIndex, nowDeleteNum, new StringBuilder(oldStr), new StringBuilder(oldStr).reverse());
             }
         }
         return num;
     }
 
-    private static int deleteChar(String oldStr, int startIndex, int endIndex, int deleteNum, StringBuilder defStr, StringBuilder reverStr) {
+    private static int deleteChar(int startIndex, int endIndex, int deleteNum, StringBuilder defStr, StringBuilder reverStr) {
         int num = 0;
         while (deleteNum > 0) {
             defStr.deleteCharAt(startIndex);
             reverStr.deleteCharAt(reverStr.length() - startIndex - 1);
             deleteNum--;
             for (int mStart = startIndex; mStart <= endIndex - 1 && mStart >= startIndex && deleteNum > 0; mStart++) {
-                num += deleteChar(oldStr, mStart, endIndex - 1, deleteNum, new StringBuilder(defStr.toString()), new StringBuilder(reverStr.toString()));
+                num += deleteChar(mStart, endIndex - 1, deleteNum, new StringBuilder(defStr.toString()), new StringBuilder(reverStr.toString()));
             }
             if (deleteNum == 0) {
                 if (defStr.toString().equals(reverStr.toString())) {
