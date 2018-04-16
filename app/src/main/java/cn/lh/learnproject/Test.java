@@ -8,11 +8,48 @@ package cn.lh.learnproject;
  */
 
 public class Test {
-
-    public static void main(String[] args) {
-        System.out.println(getNum("asadgab"));
+    private Test() {
     }
 
+    private static class Holder {
+        private static final Test test = new Test();
+    }
+
+
+    public static void main(String[] args) {
+
+        Test test = Holder.test;
+        long start = System.currentTimeMillis();
+        System.out.println(getNum("asaddfgagssdsag"));
+        long end = System.currentTimeMillis();
+        System.out.println("耗时:" + (end - start));
+
+        System.out.println("==============================================");
+        String[] aa = {"adasg",
+                "bgsa",
+                "cdgsg",
+                "ddsgdf",
+                "eds",
+                "fsdf",
+                "hdf",
+                "jder"};
+        System.out.println(binarySearch(aa, 0, aa.length, "hdf"));
+    }
+
+    // 使用递归实现的二分查找
+    private static <T extends Comparable<T>> int binarySearch(T[] x, int low, int high, T key) {
+        if (low <= high) {
+            int mid = (high + low) >>> 1;
+            if (key.compareTo(x[mid]) == 0) {
+                return mid;
+            } else if (key.compareTo(x[mid]) < 0) {
+                return binarySearch(x, low, mid - 1, key);
+            } else {
+                return binarySearch(x, mid + 1, high, key);
+            }
+        }
+        return -1;
+    }
 
     private static int getNum(String oldStr) {
         int num = 0;

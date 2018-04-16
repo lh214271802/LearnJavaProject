@@ -1,9 +1,17 @@
 package cn.lh.learnproject;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+
+import java.time.Clock;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 
 public class MyTest {
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void main(String[] args) {
 //        testStringValue();
 //        testLoop();
@@ -11,9 +19,24 @@ public class MyTest {
 
 
 //        testList();
-        testHeap();
+//        testHeap();
+
+//        testTime();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private static void testTime() {
+        System.out.println(System.currentTimeMillis());
+        Date date = new Date();
+        System.out.println(date);
+        Calendar calendar = Calendar.getInstance();
+        System.out.println(calendar.getTimeInMillis());
+        System.out.println(calendar);
+        LocalDateTime time = LocalDateTime.now();
+        System.out.println(time);
 
 
+        System.out.println(Clock.systemDefaultZone().millis());
     }
 
 
